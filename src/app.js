@@ -28,7 +28,7 @@ app.post("/repositories", (request, response) => {
     });
   }
 
-  const repositorie = { id: uuid(), url, title, techs, likes };
+  const repositorie = { id: uuid(), url, title, techs, likes: 0 };
 
   repositories.push(repositorie);
 
@@ -46,9 +46,11 @@ app.put("/repositories/:id", (request, response) => {
   }
 
   const repositorie = {
+    id,
     url,
     title,
     techs,
+    likes: repositories[repositorieIndex].likes,
   };
 
   repositories[repositorieIndex] = repositorie;
